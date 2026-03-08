@@ -13,12 +13,16 @@ public class BrowserFactory {
 
     public static WebDriver startBrowser(String browserChoice, String url) {
         if (browserChoice.equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
         } else if (browserChoice.equalsIgnoreCase("internetexplore")) {
+            WebDriverManager.iedriver().setup();
             driver = new InternetExplorerDriver();
         } else if (browserChoice.equalsIgnoreCase("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         } else if (browserChoice.equalsIgnoreCase("safari")) {
+            WebDriverManager.safaridriver().setup();
             driver = new SafariDriver();
         } else {
             driver = new EdgeDriver();
