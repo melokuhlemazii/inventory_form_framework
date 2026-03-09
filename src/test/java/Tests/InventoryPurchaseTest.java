@@ -39,11 +39,33 @@ public class InventoryPurchaseTest extends BaseTest {
         Thread.sleep(1000);
         inventoryPage.selectColor();
         Thread.sleep(1000);
-        inventoryPage.enterQuantity("1");
+        inventoryPage.enterQuantity("5");
         Thread.sleep(1000);
         inventoryPage.enterAddress("123 Test Street");
         Thread.sleep(1000);
         inventoryPage.clickNextButton();
+        Thread.sleep(1000);
+    }
+
+    @Test(dependsOnMethods = "Tests.InventoryPurchaseTest.selectDeviceInformation")
+    public void completePurchase() throws InterruptedException {
+        orderPreviewPage.selectExpressShipping();
+        Thread.sleep(1000);
+        orderPreviewPage.selectOneYearWarranty();
+        Thread.sleep(1000);
+        orderPreviewPage.enterDiscountCode("SAVE10");
+        Thread.sleep(1000);
+        orderPreviewPage.clickApplyDiscount();
+        Thread.sleep(1000);
+        orderPreviewPage.clickPurchaseDevice();
+        Thread.sleep(1000);
+    }
+
+    @Test(dependsOnMethods = "Tests.InventoryPurchaseTest.completePurchase")
+    public void viewInvoice() throws InterruptedException {
+        invoicePage.clickViewInvoiceButton();
+        Thread.sleep(1000);
+        invoicePage.clickViewInvoiceButtonByXpath();
         Thread.sleep(1000);
     }
 }
