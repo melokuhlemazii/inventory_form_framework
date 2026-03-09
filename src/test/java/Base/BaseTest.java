@@ -22,7 +22,7 @@ public class BaseTest {
     @BeforeTest
     public void setUp() {
         browserFactory = new BrowserFactory();
-        driver = browserFactory.startBrowser(browserChoice, url);
+        driver = BrowserFactory.startBrowser(browserChoice, url);
         loginPage = PageFactory.initElements(driver, LoginPage.class);
         dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         inventoryPage = PageFactory.initElements(driver, InventoryPage.class);

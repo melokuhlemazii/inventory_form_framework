@@ -1,6 +1,7 @@
 package Tests;
 
 import Base.BaseTest;
+import Pages.InventoryPage;
 import org.testng.annotations.Test;
 
 public class InventoryPurchaseTest extends BaseTest {
@@ -25,6 +26,24 @@ public class InventoryPurchaseTest extends BaseTest {
         dashboardPage.clickLearningMaterials();
         Thread.sleep(1000);
         dashboardPage.clickWebAutomationAdvance();
+        Thread.sleep(1000);
+    }
+
+    @Test(dependsOnMethods = "Tests.InventoryPurchaseTest.navigateToWebAutomationAdvance")
+    public void selectDeviceInformation() throws InterruptedException {
+        inventoryPage.selectDeviceType();
+        Thread.sleep(1000);
+        inventoryPage.selectBrand();
+        Thread.sleep(1000);
+        inventoryPage.selectStorage();
+        Thread.sleep(1000);
+        inventoryPage.selectColor();
+        Thread.sleep(1000);
+        inventoryPage.enterQuantity("1");
+        Thread.sleep(1000);
+        inventoryPage.enterAddress("123 Test Street");
+        Thread.sleep(1000);
+        inventoryPage.clickNextButton();
         Thread.sleep(1000);
     }
 }
