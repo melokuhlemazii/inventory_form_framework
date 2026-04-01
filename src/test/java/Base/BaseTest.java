@@ -2,7 +2,9 @@ package Base;
 
 import Pages.*;
 import Utilities.BrowserFactory;
+import Utilities.Screenshots;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.devtools.v143.page.model.Screenshot;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -18,10 +20,12 @@ public class BaseTest {
 
     public final String url = "https://ndosisimplifiedautomation.vercel.app/";
     public final String browserChoice = "chrome";
+    public Screenshots screenshots;
 
     @BeforeTest
     public void setUp() {
         browserFactory = new BrowserFactory();
+        screenshots = new Screenshots();
         driver = BrowserFactory.startBrowser(browserChoice, url);
         loginPage = PageFactory.initElements(driver, LoginPage.class);
         dashboardPage = PageFactory.initElements(driver, DashboardPage.class);

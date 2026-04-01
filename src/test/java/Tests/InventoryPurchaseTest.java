@@ -16,7 +16,7 @@ public class InventoryPurchaseTest extends BaseTest {
         loginPage.clickSubmitButton();
         Thread.sleep(5000);
         loginPage.verifyLoginSuccess();
-
+        screenshots.takesSnapShot(driver, "loginVerification");
     }
 
     @Test(dependsOnMethods = "Tests.LoginTest.loginWithValidDetails")
@@ -27,6 +27,7 @@ public class InventoryPurchaseTest extends BaseTest {
         Thread.sleep(1000);
         dashboardPage.clickWebAutomationAdvance();
         Thread.sleep(1000);
+        screenshots.takesSnapShot(driver, "navigateToWebAutomationAdvance");
     }
 
     @Test(dependsOnMethods = "Tests.InventoryPurchaseTest.navigateToWebAutomationAdvance")
@@ -45,6 +46,7 @@ public class InventoryPurchaseTest extends BaseTest {
         Thread.sleep(1000);
         inventoryPage.clickNextButton();
         Thread.sleep(1000);
+        screenshots.takesSnapShot(driver, "selectDeviceInformation");
     }
 
     @Test(dependsOnMethods = "Tests.InventoryPurchaseTest.selectDeviceInformation")
@@ -59,6 +61,7 @@ public class InventoryPurchaseTest extends BaseTest {
         Thread.sleep(1000);
         orderPreviewPage.clickPurchaseDevice();
         Thread.sleep(1000);
+        screenshots.takesSnapShot(driver, "completePurchase");
     }
 
     @Test(dependsOnMethods = "Tests.InventoryPurchaseTest.completePurchase")
@@ -67,6 +70,7 @@ public class InventoryPurchaseTest extends BaseTest {
         Thread.sleep(1000);
         invoicePage.clickViewInvoiceButtonByXpath();
         Thread.sleep(1000);
+        screenshots.takesSnapShot(driver, "viewInvoice");
     }
 }
 
